@@ -1,4 +1,5 @@
 //Здесь указываются типы каждого свойства изначального стейта этого модуля
-export interface CounterInitialState {
-    count: number
+export interface ProductsInitialState {
+    productsList: [],
+    productsListPending: null | boolean,
 }
