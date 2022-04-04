@@ -1,7 +1,5 @@
-@use "../../variables" as *;
-
 .counter{
   &__title{
-    color: $mainColor;
+    color: var(--redColor);
   }
 }

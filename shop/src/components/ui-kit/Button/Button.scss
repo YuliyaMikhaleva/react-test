@@ -1,0 +1,16 @@
+.button{
+  border: none;
+  background: var(--redColor);
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  font-family: Roboto;
+  color: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  cursor: pointer;
+  &__params{
+    padding: 6px 18px 6px 20px;
+    box-sizing: border-box;
+  }
+}
