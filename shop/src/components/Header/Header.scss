@@ -1,0 +1,90 @@
+.header{
+  &__wrp{
+    height: 60px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    background-color: white;
+  }
+  &__block{
+    display: block;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 60px;
+    color: var(--blackColor);
+    font-family: Roboto;
+    &:first-child {
+      background-color: var(--redColor);
+      color: white;
+      font-size: 20px;
+      line-height: 60px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0 33px 0 29px;
+      box-sizing: border-box;
+      display: flex;
+      font-weight: 700;
+    }
+    &:last-child{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-weight: 400;
+    }
+  }
+  &__block-svg{
+    display: block;
+    height: 100%;
+    margin-left:7px ;
+  }
+  &__links{
+    display: flex;
+  }
+
+  &__button-basket{
+    margin: 0 29px 0 0;
+    cursor: pointer;
+    border: none;
+    border-bottom: 4px solid transparent;
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0;
+    position: relative;
+    &:hover{
+      border-bottom: 4px solid var(--redColor);
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+  }
+  &__ellipse-counter{
+    position: absolute;
+    top: 13px;
+    right: -9px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--redColor);
+    border-radius: 50%;
+  }
+  &__counter{
+    color: white;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    position: absolute;
+    top: 16px;
+    right: -4px;
+  }
+  &__button-svg{
+    height: 100%;
+    position: relative;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__block:first-child{
+    padding: 0 10px;
+  }
+}

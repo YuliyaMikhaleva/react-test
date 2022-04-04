@@ -5,10 +5,11 @@ import "./Counter.scss"
 import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import {fetchProducts} from "../../store/products/async";
 import {Button} from "../ui-kit/Button/Button";
+import {selectCount} from "../../store/counter/selectors";
 
 
 export function Counter() {
-    const count = useAppSelector(state => state.counter.count)
+    const count = useAppSelector(selectCount)
     const fetchProductsList = () => dispatch(fetchProducts());
 
 
@@ -17,7 +18,7 @@ export function Counter() {
     useEffect(() => {
         console.log('render')
         fetchProductsList();
-    })
+    },[])
 
     return (
         <div className="counter">

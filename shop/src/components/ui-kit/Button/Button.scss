@@ -9,8 +9,14 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
   border-radius: 5px;
   cursor: pointer;
+  transition: opacity 0.3s;
   &__params{
     padding: 6px 18px 6px 20px;
     box-sizing: border-box;
+    min-width: 219px;
+  }
+  &:hover{
+    opacity: 0.89;
+    transition: opacity 0.3s;
   }
 }

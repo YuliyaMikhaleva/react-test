@@ -1,0 +1,49 @@
+.header-item{
+  margin: 0 22px 0 22px;
+  font-family: Roboto;
+  font-weight: 400;
+  height: 100%;
+  color: #424242;
+  text-decoration: none;
+  &:hover{
+    border-bottom: 4px solid #ff9c9c;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: #424242;
+  }
+  &:active{
+    border-bottom: 4px solid white;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  &:focus{
+    border-bottom: 4px solid var(--redColor);
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  &__active{
+    border-bottom: 4px solid var(--redColor);
+    box-sizing: border-box;
+    font-weight: normal;
+  }
+
+
+}
+
+.activeClass{
+  text-decoration: none;
+  border-bottom: 4px solid var(--redColor);
+  box-sizing: border-box;
+  font-weight: normal;
+  height: 100%;
+  &:hover{
+    border-bottom: 4px solid var(--redColor);
+  }
+}
+
+@media(max-width:530px) {
+  .header__item {
+    font-size: 14px;
+    margin: 0 4px 0 4px;
+  }
+}
