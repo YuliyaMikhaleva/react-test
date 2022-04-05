@@ -1,31 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./Header.scss"
 import {HeaderMenu} from "./Header-menu/Header-menu";
-import {useAppSelector} from "../../hooks/hooks";
-import {useLocation, useNavigate} from "react-router-dom";
-import {getGroupsObjects} from "../../store/products/selectors";
+
 
 
 export function Header() {
-
-    const location = useLocation()
-    console.log('location', location)
-
-
-    // const params = useSearchParams()
-    // console.log('useSearchParams', params)
-
-    // const [searchParams, setSearchParams] = useSearchParams();
-    // console.log(searchParams)
-
-    const category = useAppSelector(state => getGroupsObjects(state, -1))[0]?.id//название первой категории
-    const subCategory = useAppSelector(state => getGroupsObjects(state, category))[0]?.id//название первой подкатегории
-
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        navigate(`/${category}/${subCategory}`)
-    },[navigate,category,subCategory])
 
     return (
         <header>
