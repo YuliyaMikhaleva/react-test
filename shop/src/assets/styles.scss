@@ -1,2 +1,41 @@
 @import "./_mixins.scss";
 @import "./_fonts.scss";
+@import "./variables.scss";
+
+*{
+  font-family: Roboto;
+}
+
+.main{
+  display: flex;
+  min-height: 100vh;
+  &__menu{
+    //width: 20%;
+    position: relative;
+    z-index: 1;
+    margin-top: 60px;
+    display: flex;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main__menu{
+    //width: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main{
+    height: 100%;
+    width: 100vw;
+    flex-direction: column;
+  }
+  .main__menu{
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    //width: 100%;
+  }
+
+}

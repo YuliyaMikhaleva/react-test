@@ -1,19 +1,16 @@
 import React from "react";
 import "./SideBar.scss"
-import {useAppSelector} from "../../hooks/hooks";
-import {productsList} from "../../store/products/selectors";
+import {useButtons} from "../../hooks/hooks";
 import {SideBarItem} from "./SideBar-item/SideBar-item";
-
-
-interface sideBar {
-    parent_id: number,
-    name: string
-}
+import {useLocation} from "react-router-dom";
 
 export function SideBar() {
     //кнопки сайдбара
-    const sideBarButtons: Array<any> = useAppSelector(productsList).filter((item:sideBar) => item.parent_id === 100).map((el:sideBar) => el.name)
-    console.log(sideBarButtons)
+    // const sideBarButtons: Array<any> = useAppSelector(state => sideBarMenu(state, 100))
+    const sideBarButtons: Array<any> = useButtons( 100)
+
+    // const category =  useLocation();
+    // console.log('!', category)
 
     return (
         <nav className="side-bar">

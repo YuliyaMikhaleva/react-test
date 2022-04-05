@@ -7,4 +7,9 @@ import {RootState} from "../index";
  */
 export const productsList = (state: RootState) => state.products.productsList;//все товары
 
+//группы товаров, указанные в верхнем/боковом меню
+export const getGroups = (state: RootState, id:number) => state.products.productsList.filter((item) => item.parent_id === id).map((el) => el.name);
+
+export const getGroupsObjects = (state: RootState, id:number) => state.products.productsList.filter((item) => item.parent_id === id);
+
 export const productsListPending = (state: RootState) => state.products.productsListPending;

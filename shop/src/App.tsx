@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
-import './App.scss';
-import './variables.scss'
 import "./assets/styles.scss"
 import {Header} from "./components/Header/Header";
 import {fetchProducts} from "./store/products/async";
 import {useAppDispatch} from "./hooks/hooks";
 import {SideBar} from "./components/SideBar/SideBar";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Products} from "./pages/products";
+
+
 
 function App() {
 
@@ -13,20 +15,24 @@ function App() {
 
     useEffect(() => {
         const fetchProductsList = () => dispatch(fetchProducts());
-        console.log('render')
         fetchProductsList();//вызываем список товаров
+
     },[dispatch])
 
-  return (
-    <div>
-      <Header/>
-      <section className="main">
-          <section className="main__menu">
-              <SideBar/>
-          </section>
-
-      </section>
-    </div>
+    return (
+      <BrowserRouter>
+          <div>
+              <Header/>
+              <section className="main">
+                  <section className="main__menu">
+                      <SideBar/>
+                      <Routes>
+                          <Route path="/:category/:subcategory" element={<Products />}/>
+                      </Routes>
+                  </section>
+              </section>
+          </div>
+      </BrowserRouter>
   );
 }
 
