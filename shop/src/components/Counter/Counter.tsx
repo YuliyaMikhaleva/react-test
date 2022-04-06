@@ -25,7 +25,6 @@ export function Counter() {
             <h1 className="counter__title">Счетчик: {count}</h1>
             <button onClick={() => dispatch(increment())}>Добавить 1</button>
             <button onClick={() => dispatch(decrement())}>Удалить 1</button>
-
             <Button title="Кнопка"></Button>
         </div>
     )
