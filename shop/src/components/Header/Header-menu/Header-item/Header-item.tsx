@@ -1,7 +1,8 @@
 import React, {useMemo} from "react";
 import "./Header-item.scss"
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useButtonsObj} from "../../../../hooks/hooks";
+import classNames from "classnames";
 
 export function HeaderItem(props:{name:string, id:number}) {
 
@@ -15,9 +16,14 @@ export function HeaderItem(props:{name:string, id:number}) {
         return `/${props.id}/${firstEl.id}`
     },[props.id])
 
+    let params = useParams()
+
+    const isActive = useMemo(() => {
+        return Number(params.category) === props.id
+    },[params.category,props.id])
 
     return (
-        <Link to={link} className="header-item">
+        <Link to={link} className={classNames('header-item', {'activeClass': isActive})}>
             {props.name}
         </Link>
     )

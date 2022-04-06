@@ -5,3 +5,8 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 37px;
 }
+
+.catalog__zeropage{
+  width: 100%;
+  grid-column: 1/5;
+}

@@ -13,3 +13,6 @@ export const getGroups = (state: RootState, id:number) => state.products.product
 export const getGroupsObjects = (state: RootState, id:number) => state.products.productsList.filter((item) => item.parent_id === id);
 
 export const productsListPending = (state: RootState) => state.products.productsListPending;
+
+
+export const basket = (state: RootState) => state.basket.basket;//все товары в корзине

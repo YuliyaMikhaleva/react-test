@@ -14,7 +14,10 @@
     position: relative;
     z-index: 1;
     margin-top: 60px;
-    display: flex;
+    //display: flex;
+    display: grid;
+    grid-template-columns: 325px auto;
+    width: 100vw;
   }
 }
 
