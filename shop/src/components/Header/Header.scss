@@ -1,4 +1,5 @@
 .header{
+  position: relative;
   &__wrp{
     height: 60px;
     display: flex;
@@ -80,6 +81,18 @@
   &__button-svg{
     height: 100%;
     position: relative;
+  }
+  &__modal-basket{
+    position: absolute;
+    top: -100%;
+    right: 0;
+    z-index: 2;
+    transition: top 0.5s ease-in-out;
+
+  }
+  &__modal-basket-open{
+    top: 0;
+    transition: top 0.5s ease-in-out;
   }
 }
 

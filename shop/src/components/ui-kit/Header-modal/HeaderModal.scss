@@ -1,0 +1,13 @@
+.header-modal{
+  display: flex;
+  justify-content: space-between;
+  &__title{
+    font-family: Roboto;
+    font-weight: 700;
+  }
+  &__btn{
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
