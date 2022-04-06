@@ -1,6 +1,6 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import type { RootState, AppDispatch } from '../store'
-import {getGroups} from "../store/products/selectors";
+import {getGroups, getGroupsObjects} from "../store/products/selectors";
 
 
 //Используйте во всем приложении вместо простых `useDispatch` и `useSelector
@@ -9,3 +9,5 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 //хук для получения массива кнопок
 export const useButtons = (id:number) => useAppSelector(state=> getGroups(state, id))
+
+export const useButtonsObj = (id:number) => useAppSelector(state => getGroupsObjects(state, id))

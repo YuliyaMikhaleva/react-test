@@ -12,12 +12,7 @@ export const fetchCounter = createAsyncThunk(
             .then(result => {
                 result.sort((prev:any,next:any) => prev.id - next.id)
             })
-        console.log(array)
         return array
-
     }
-    // async () => {
-    //     const response = TodoApi.list();
-    //     response.data();
-    // }
+
 )
