@@ -4,7 +4,7 @@ import "./Button.scss"
 interface Props{
     title: string,
     className?: string,
-    add?:()=> void
+    add?:()=> void,
 }
 
 export function Button (props:Props) {
@@ -13,6 +13,6 @@ export function Button (props:Props) {
         className += ` ${props.className}`
     }
     return (
-        <button className={className} onClick={props.add} >{props.title}</button>
+        <button className={className} onClick={props.add}>{props.title}</button>
     )
 }

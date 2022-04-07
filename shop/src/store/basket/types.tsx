@@ -11,14 +11,21 @@ export interface ProductProps {
        value:number
     }
 }
+interface ProductReviews {
+    [key: number]: {
+        author: string,
+        avatar:string,
+        rate:number,
+        text:string
+    }
+}
 
 export interface Product {
     id: number,
     parent_id: number,
     name:string,
-    price?:number,
-    img?:string,
-    props?:ProductProps
-
-
+    price:number,
+    img:string,
+    props:ProductProps,
+    reviews:ProductReviews
 }

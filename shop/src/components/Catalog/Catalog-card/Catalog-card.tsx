@@ -27,7 +27,6 @@ interface ProductReviews {
     }
 }
 export function CatalogCard (props:{product:Product, nameButton:string, add:()=> void}) {
-    console.log('props', props.add)
     return (
         <article className="catalog-card">
             <button className="catalog-card__link" type="button">

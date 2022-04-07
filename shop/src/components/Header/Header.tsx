@@ -12,7 +12,6 @@ export function Header() {
     const counter = useAppSelector(basket).length
     const [open, setOpen] = useState(false)
 
-
     return (
         <header>
             <div className="header">
@@ -37,9 +36,9 @@ export function Header() {
                     </div>
                 </div>
             </div>
-            {/*<ModalBasket className="header__modal-basket header__modal-basket-open"/>*/}
 
-            <ModalBasket className={classNames('header__modal-basket',{'header__modal-basket-open': open})}/>
+            <ModalBasket close={() => setOpen(!open)} className={classNames('header__modal-basket',{'header__modal-basket-open': open})}/>
+            <div className={classNames('header__dark-block', {'header__dark-block-active': open})}></div>
         </header>
     )
 }

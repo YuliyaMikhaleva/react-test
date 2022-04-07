@@ -1,0 +1,38 @@
+.input-block{
+
+  &__label{
+    display: block;
+    margin-bottom: 7px;
+    color: black;
+  }
+  &__input{
+    height: 41px;
+    border: 1px solid #898989;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 12px 14px 10px 14px;
+    display: block;
+    width: 100%;
+    &::placeholder{
+      color: black;
+    }
+    &:last-child{
+      width: 100%;
+      max-width: 572px;
+    }
+  }
+  &__error{
+    border: 1px solid var(--redColor);
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 16px;
+    height: 41px;
+    padding: 12px 14px 10px 14px;
+    width: 100%;
+  }
+  &__errorText{
+    color: var(--redColor);
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

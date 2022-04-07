@@ -1,0 +1,21 @@
+.form{
+  font-size: 16px;
+  line-height: 19px;
+  font-family: Roboto;
+  font-weight: 400;
+  &__wrp{
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__button{
+    margin-top: 35px;
+    width: 219px;
+  }
+  &__block{
+    width: 100%;
+    &-item{
+      margin-right: 23px;
+      width: 100%;
+    }
+  }
+}
