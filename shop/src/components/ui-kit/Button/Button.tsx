@@ -1,18 +1,17 @@
-import React from "react";
+import React, {ComponentProps} from "react";
 import "./Button.scss"
 
-interface Props{
+interface Props extends ComponentProps<'button'> {
     title: string,
-    className?: string,
     add?:()=> void,
 }
 
-export function Button (props:Props) {
+export function Button ({ add, title, ...props}:Props) {
     let className = "button button__params"
     if (props.className){
         className += ` ${props.className}`
     }
     return (
-        <button className={className} onClick={props.add}>{props.title}</button>
+        <button {...props} className={className} onClick={add}>{title}</button>
     )
 }

@@ -21,6 +21,22 @@ export function InputBlock(props:inputType) {
             <label htmlFor={props.value} className="input-block__label">{props.label}</label>
             <input id={props.value} className="input-block__input" type="text" onInput={(e:ChangeEvent<HTMLInputElement>) => props.changeData(e.target.value)}/>
             <ModalError errors={props.errors} element={props.value}/>
+            {(props.errors.length && props.label==="Телефон") ? (
+                <div>
+                    {props.errors.map(el => {
+                        return(
+                            <span key={el.id}>
+                                {props.error === "phoneError" && (
+                                    <span className="input-block__errorText">
+                                        Номер телефона должен быть указан в следующей форме: 89504584345
+                                    </span>
+                                )}
+                            </span>
+                        )
+                    })}
+                </div>
+            ) : <></>
+            }
         </div>
 
     )

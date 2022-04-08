@@ -10,7 +10,8 @@ import {ModalForm} from "./Modal-form/Modal-form";
 
 export function ModalBasket(props:{className:string, close:() => void}) {
 
-    const [showResultOrder] = useState(false)
+    const [showResultOrder, setShowResultOrder] = useState(false)
+    const [showParams, setShowParams] = useState(true)
 
     const basketList = useAppSelector(basket)
 
@@ -37,11 +38,10 @@ export function ModalBasket(props:{className:string, close:() => void}) {
 
                                 <Basket/>
                                 {/*Здесь будет корзина с товарами*/}
-
-                                <ModalForm/>
+                                <ModalForm setShowParams={() => setShowParams} setShowResultOrder={() => setShowResultOrder}/>
                             </section>
                         )}
-                        <ModalText className="basket__modaltext" title={title}/>
+                        <ModalText className="basket__modaltext" title={title} />
 
                     </div>
                 </div>

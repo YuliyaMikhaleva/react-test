@@ -1,5 +1,6 @@
 .header{
   position: relative;
+  z-index: 0;
   &__wrp{
     height: 60px;
     display: flex;
@@ -83,12 +84,11 @@
     position: relative;
   }
   &__modal-basket{
-    position: absolute;
+    position: fixed;
     top: -100%;
     right: 0;
     z-index: 3;
     transition: top 0.2s;
-
   }
   &__modal-basket-open{
     top: 0;

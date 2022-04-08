@@ -1,0 +1,43 @@
+.modal-product{
+  min-height: 100vh;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  &__img{
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+  &__name{
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #424242;
+    margin-bottom: 7px;
+  }
+  &__price{
+    font-family: Roboto;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 40px;
+  }
+  &__links{
+    margin-bottom: 16px;
+  }
+  &__parametrs{
+    margin-bottom: 32px;
+  }
+}
+
+@media(max-width:500px) {
+  .modal-product__links{
+    font-size: 12px;
+  }
+  .modal-product__img{
+    width: 100%;
+  }
+}
+

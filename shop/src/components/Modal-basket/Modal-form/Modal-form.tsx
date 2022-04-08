@@ -1,12 +1,16 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, SetStateAction, useCallback, useEffect, useMemo, useState} from "react";
 import "./Modal-form.scss"
 import {Button} from "../../ui-kit/Button/Button";
 import {InputBlock} from "../../ui-kit/Input-block/Input-block";
 import {useAppDispatch} from "../../../hooks/hooks";
 import {loadOrder} from "../../../store/basket/async";
 
+interface show{
+    setShowParams:(el:boolean) => void
+    setShowResultOrder:(el:boolean) => void
+}
 
-export function ModalForm() {
+export function ModalForm(props:show) {
     const [errors, setErrors] = useState<Array<string>>([])
     const [data, setData] = useState({
         name:"",
@@ -15,31 +19,46 @@ export function ModalForm() {
     })
     const dispatch = useAppDispatch()
 
-    const checkForm = async () => {
-        await setErrors([]);
-        if(data.name === ""){
-            await setErrors([...errors, 'nameError'])
-        }
+    const checkForm =  (e:ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setErrors([]);
+        if(!data.name){
+             setErrors(prevState => [...prevState, 'nameError']);
+        } else
         if (!data.phone) {
-            setErrors([...errors, 'phoneError'])
-        }
-        if (!data.phone) {
-            setErrors([...errors, 'phoneError'])
-        }
-        await console.log(errors)
+             setErrors(prevState => [...prevState, 'phoneError']);
+        } else
+        if (!validPhone(data.phone)) {
+            setErrors(prevState => [...prevState, 'phoneError']);
+        } else
+        if (!data.address) {
+             setErrors(prevState => [...prevState, 'addressError'])
+        } else doOrder()
+    }
 
-        // setTimeout(async () => {
-        //     console.log(errors.length)
-        //
-        // }, 1000)
-        // if (!errors.length){
-        //     const order = () => dispatch(loadOrder())
-        //     order()
-        // }
+    /**
+     * Проверка правильности ввода номера телефона телефона
+     * @param phone - номер телефона типа +7(950)45-84-345
+     * @returns {boolean}
+     */
+    const validPhone = (phone:string) => {
+        let re = /^\+?[78]\(?\d{3}\)?\d{2}-?\d{2}-?\d{3}$/;
+        return re.test(phone);
+    }
+
+    //создание заказа
+    const doOrder = () => {
+        props.setShowParams(false);
+        props.setShowResultOrder(true)
+        const order = () => dispatch(loadOrder())
+        order()
+        setTimeout(() => {
+            props.setShowResultOrder(true)
+        }, 2000)
     }
 
     return (
-        <div className="form">
+        <form className="form" onSubmit={checkForm}>
             <div className="form__wrp">
                 <InputBlock
                     value={data.name}
@@ -63,8 +82,8 @@ export function ModalForm() {
                 error="addressError"
                 className="form__block"
                 changeData={(value:string) => setData({...data, address: value})}/>
-            <Button className="form__button" title="Заказать" add={checkForm}/>
-        </div>
+            <Button type="submit" className="form__button" title="Заказать"/>
+        </form>
 
     )
 }
