@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import "./Input-block.scss"
 import classNames from "classnames";
 import {ModalError} from "../../Modal-basket/Modal-Error/Modal-error";
@@ -25,7 +25,7 @@ export function InputBlock(props:inputType) {
                 <div>
                     {props.errors.map(el => {
                         return(
-                            <span key={el.id}>
+                            <span key={el}>
                                 {props.error === "phoneError" && (
                                     <span className="input-block__errorText">
                                         Номер телефона должен быть указан в следующей форме: 89504584345

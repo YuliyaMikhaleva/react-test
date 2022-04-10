@@ -17,11 +17,11 @@ export const infoSlice = createSlice({
     // Редьюсеры, которые обрабатывают side-эффекты в async.ts. Прелесть в том что можно цеплять редьюсеры к статусам
     // fullfilled, pending, rejected и тд. Соотвественно удобно обрабатывать ошибки и загрузки, уже не говоря о том, что можно сделать
     // полностью автоматизированную генерацию всех этих редьюсеров и статусов ошибок, загрузок
-    // extraReducers: (builder) => {
-    //     builder.addCase(loadDescription.fulfilled, (state: InfoInitialState, action: PayloadAction<[]>) => {
-    //         state.description = action.payload;
-    //     });
-    // }
+    extraReducers: (builder) => {
+        builder.addCase(loadDescription.fulfilled, (state: InfoInitialState, action: PayloadAction<any>) => {
+            state.description = action.payload;
+        });
+    }
 
 })
 

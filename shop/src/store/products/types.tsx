@@ -4,21 +4,27 @@ export interface ProductsInitialState {
     productsListPending: null | boolean,
 }
 
-export interface ProductProps {
+export interface Product{
+    id:number,
+    img:string,
+    name:string,
+    parent_id:number,
+    price:number,
+    props: ProductProps,
+    reviews:ProductReviews
+}
+interface ProductProps {
     [key: string]: {
-       caption: string,
-       measure:string,
-       value:number
+        caption: string,
+        measure:string,
+        value:number
     }
 }
-
-export interface Product {
-    id: number,
-    parent_id: number,
-    name:string,
-    price?:number,
-    img?:string,
-    props?:ProductProps
-
-
+interface ProductReviews {
+    [key: number]: {
+        author: string,
+        avatar:string,
+        rate:number,
+        text:string
+    }
 }

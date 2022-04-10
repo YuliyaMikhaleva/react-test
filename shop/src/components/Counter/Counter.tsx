@@ -16,7 +16,6 @@ export function Counter() {
     const dispatch = useAppDispatch()//для вызова экшенов
 
     useEffect(() => {
-        console.log('render')
         fetchProductsList();
     },[])
 

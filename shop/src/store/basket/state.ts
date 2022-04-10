@@ -4,5 +4,6 @@ import {BasketInitialState} from "./types"
 
 export const initialState: BasketInitialState = {
     basket:[],
-    basketPending: null,
+    pending: null,
+    itemsIds:[],//id товаров в корзине
 }

@@ -53,7 +53,7 @@ export function ModalForm(props:show) {
         const order = () => dispatch(loadOrder())
         order()
         setTimeout(() => {
-            props.setShowResultOrder(true)
+            props.setShowResultOrder(false)
         }, 2000)
     }
 

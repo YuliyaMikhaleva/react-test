@@ -3,12 +3,18 @@
   font-family: Roboto;
   font-weight: 400;
   font-size: 16px;
+  &__button{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
   &__img{
     border: 1px solid #E5E5E5;
     border-radius: 10px;
     box-sizing: border-box;
     margin-bottom: 25px;
     width: 100%;
+    height: 341px;
   }
   &__name{
     font-family: Roboto;
@@ -41,3 +47,24 @@
   }
 }
 
+.modal-product .rc-tabs-nav-list{
+  display: flex;
+  gap: 19px;
+}
+.modal-product .rc-tabs-tab{
+  cursor: pointer;
+  border-bottom: 3px solid #E4E2E2;
+  box-sizing: border-box;
+}
+.modal-product .rc-tabs-tab-active{
+  border-bottom: 3px solid var(--redColor);
+  box-sizing: border-box;
+}
+.modal-product .rc-tabs-ink-bar.rc-tabs-ink-bar-animated{
+  display: none;
+}
+.modal-product .rc-tabs-tab-btn{
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 3px;
+}

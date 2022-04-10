@@ -32,7 +32,7 @@ export const loadDescription = createAsyncThunk(
     'info/loadDescription',//название слайса/название экшена
     //вторым параметром функция, в которой делается запрос
     () => {
-        return fetch('http://test1.web-gu.ru/')
+        let result = fetch('http://test1.web-gu.ru/')
             .then(response => response.json())
             .then(data => {
                 /**
@@ -48,20 +48,15 @@ export const loadDescription = createAsyncThunk(
                 }))
                 return newArray
             })
-            .then( async function(newArray) {
-                let arrayDescription:any = [];
-                await newArray.map((element:Product) => {
-                    fetch(`http://test1.web-gu.ru/?action=show_product&id=${element.id}`)
-                        .then(response => {
-                                return response.json()
-                            }
+            .then(function(newArray) {
+                // let arrayDescription:any = [];
+                let newArray2 = newArray.map((element:Product) => {
+                    return  fetch(`http://test1.web-gu.ru/?action=show_product&id=${element.id}`)
+                        .then(response => response.json()
                         )
-                        .then((data) => {
-                            arrayDescription.push(data);
-                            return arrayDescription
-                        })
                 });
+                return Promise.all(newArray2).then(res => res)
             })
-
+        return result
     }
 )

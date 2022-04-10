@@ -1,0 +1,22 @@
+.parametrs{
+  &__line{
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    background-color: #F3F3F3;
+    padding: 0 7px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    &:nth-child(2) {
+      background-color: white;
+    }
+  }
+  &__value{
+    margin-right: 3px;
+    color:#979494;
+  }
+  &__measure{
+    color:#979494;
+  }
+}

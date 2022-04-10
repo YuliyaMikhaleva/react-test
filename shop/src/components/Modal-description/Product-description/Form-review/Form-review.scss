@@ -1,0 +1,37 @@
+.form-review{
+  &__mark{
+    display: block;
+    margin-bottom:9px;
+    color: black;
+  }
+  &__input{
+    margin-bottom: 22px;
+  }
+  &__label{
+    margin-bottom: 9px;
+    color: black;
+  }
+  &__textarea{
+    width: 100%;
+    display: block;
+    padding: 11px 8px 11px 12px;
+    box-sizing: border-box;
+    height: 174px;
+    margin-bottom: 26px;
+    border-radius: 10px;
+  }
+  &__error{
+    width: 100%;
+    display: block;
+    padding: 11px 8px 11px 12px;
+    box-sizing: border-box;
+    height: 174px;
+    border-radius: 10px;
+    border: 1px solid var(--redColor);
+    margin-bottom: 26px;
+  }
+  &__errorTextarea{
+    margin-bottom: 26px;
+  }
+
+}

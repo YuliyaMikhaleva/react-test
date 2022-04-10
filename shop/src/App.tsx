@@ -5,6 +5,7 @@ import {Products} from "./pages/products";
 import {useAppDispatch} from "./hooks/hooks";
 import {fetchProducts} from "./store/products/async";
 import {Layout} from "./components/Layout/Layout";
+import {loadDescription} from "./store/info/async";
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     useEffect(() => {
         const fetchProductsList = () => dispatch(fetchProducts());
         fetchProductsList();//вызываем список товаров
-
+        const productsDescription = () => dispatch(loadDescription());
+        productsDescription();//вызываем массив с описаниями
     },[dispatch])
 
     // const category = useAppSelector(state => getGroupsObjects(state, -1))[0]?.id//название первой категории

@@ -1,0 +1,38 @@
+.review{
+  display: flex;
+  justify-content: space-between;
+  &__photo{
+    display: block;
+    float:left;
+    margin-right: 11px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  &__block{
+    width: 100%;
+  }
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+  }
+  &__name{
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: normal;
+    color: black;
+  }
+  &__txt{
+    background-color: #f3f3f3;
+    padding: 13px 19px 5px 14px;
+    border-radius: 7px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media(max-width:500px) {
+  .review__photo{
+    width: 50px;
+  }
+}

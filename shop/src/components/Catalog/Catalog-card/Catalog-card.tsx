@@ -1,11 +1,14 @@
-import React, {useState} from "react";
+import React, {useMemo, useState} from "react";
 import {Button} from "../../ui-kit/Button/Button";
 import "./Catalog-card.scss"
 import {ModalDescription} from "../../Modal-description/Modal-description";
 import classNames from "classnames";
+import {useAppSelector} from "../../../hooks/hooks";
+import {getItemIds} from "../../../store/basket/selectors";
 
 interface Product{
     id:number,
+    descr:string,
     img:string,
     name:string,
     parent_id:number,
@@ -28,8 +31,15 @@ interface ProductReviews {
         text:string
     }
 }
-export function CatalogCard (props:{product:Product, nameButton:string, add:()=> void}) {
+export function CatalogCard (props:{product:Product, add:()=> void}) {
     const [open, setOpen] = useState(false)
+
+    const titleButton = useAppSelector(state => getItemIds(state, props.product.id))
+
+
+    const nameButton = useMemo(() => {
+        return titleButton
+    },[titleButton])
 
     return (
         <article className="catalog-card">
@@ -40,7 +50,7 @@ export function CatalogCard (props:{product:Product, nameButton:string, add:()=>
                 <h3 className="catalog-card__title">{props.product.name}</h3>
             </button>
             <span className="catalog-card__price"><span>{props.product.price}</span> ₽</span>
-            <Button  className="catalog-card__button" title={props.nameButton} add={props.add}></Button>
+            <Button  className="catalog-card__button" title={nameButton} add={props.add}></Button>
             <ModalDescription close={() => setOpen(!open)} className={classNames('catalog-card__description',{'catalog-card__description-open':open})} product={props.product}/>
             <div className={classNames('catalog-card__dark-block', {'catalog-card__dark-block-active': open})}></div>
         </article>
