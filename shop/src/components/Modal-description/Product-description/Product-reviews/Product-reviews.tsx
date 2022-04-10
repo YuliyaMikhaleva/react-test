@@ -1,22 +1,15 @@
-import React, {useEffect, useMemo} from "react";
+import React, {useMemo} from "react";
 import "./Product-reviews.scss"
+import {PropsReviewObj} from "../../../../types/Products";
 
-interface PropsReview {
-    author:string,
-    avatar:string,
-    rate:number,
-    text:string
-}
-
-export function ProductReviews(props:{reviews:any}) {
-    const newReviews:Array<PropsReview> = useMemo(() => {
+export function ProductReviewsComp(props:{reviews:any}) {
+    const newReviews:Array<PropsReviewObj> = useMemo(() => {
         return Object.values(props.reviews)
     },[props.reviews])
 
-
     return (
         <>
-            {newReviews.map((review:PropsReview, index:number) => {
+            {newReviews.map((review:PropsReviewObj, index:number) => {
                 return (
                     <article className="review" key={index}>
                         <img className="review__photo" src={review.avatar} alt="avatar"/>

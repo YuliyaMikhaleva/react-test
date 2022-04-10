@@ -2,10 +2,12 @@ import React, {useEffect} from 'react';
 import "./assets/styles.scss"
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import {Products} from "./pages/products";
-import {useAppDispatch} from "./hooks/hooks";
+import {useAppDispatch, useAppSelector} from "./hooks/hooks";
 import {fetchProducts} from "./store/products/async";
 import {Layout} from "./components/Layout/Layout";
 import {loadDescription} from "./store/info/async";
+import {getShowloader} from "./store/showloader/selectors";
+import {Loader} from "./components/ui-kit/Loader/Loader";
 
 
 function App() {
@@ -18,20 +20,11 @@ function App() {
         productsDescription();//вызываем массив с описаниями
     },[dispatch])
 
-    // const category = useAppSelector(state => getGroupsObjects(state, -1))[0]?.id//название первой категории
-    //
-    // const subCategory = useAppSelector(state => getGroupsObjects(state, category))[0]?.id//название первой подкатегории
-    //
-    // const navigate = useNavigate()
-    //
-    // console.log(category, subCategory)
-    // let products = useAppSelector(productsList)
-    // if (products){
-    //     navigate(`/${category}/${subCategory}`)
-    // }
+    const showloader = useAppSelector(getShowloader)
 
     return (
       <BrowserRouter>
+          {showloader && <Loader/>}
                           <Routes>
                               <Route path="/" element={<Layout/>}>
                                   <Route path="/:category/:subcategory" element={<Products />}/>

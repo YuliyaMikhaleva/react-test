@@ -5,38 +5,18 @@ import {ModalDescription} from "../../Modal-description/Modal-description";
 import classNames from "classnames";
 import {useAppSelector} from "../../../hooks/hooks";
 import {getItemIds} from "../../../store/basket/selectors";
+import {Product} from "../../../types/Products";
 
-interface Product{
-    id:number,
-    descr:string,
-    img:string,
-    name:string,
-    parent_id:number,
-    price:number,
-    props: ProductProps,
-    reviews:ProductReviews
-}
-interface ProductProps {
-    [key: string]: {
-        caption: string,
-        measure:string,
-        value:number
-    }
-}
-interface ProductReviews {
-    [key: number]: {
-        author: string,
-        avatar:string,
-        rate:number,
-        text:string
-    }
-}
 export function CatalogCard (props:{product:Product, add:()=> void}) {
     const [open, setOpen] = useState(false)
 
+
     const titleButton = useAppSelector(state => getItemIds(state, props.product.id))
 
-
+    /**
+     * Название кнопки в зависимости от того, есть в корзине товар уже или нет
+     * return "В корзине", "...", "Добавить в корзину"
+     */
     const nameButton = useMemo(() => {
         return titleButton
     },[titleButton])

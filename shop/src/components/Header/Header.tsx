@@ -6,8 +6,6 @@ import {basket} from "../../store/basket/selectors";
 import {ModalBasket} from "../Modal-basket/ModalBasket";
 import classNames from "classnames";
 
-
-
 export function Header() {
     const counter = useAppSelector(basket).length
     const [open, setOpen] = useState(false)

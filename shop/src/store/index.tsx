@@ -5,13 +5,15 @@ import {counterSlice} from "./counter/counterSlice";
 import {productsSlice} from "./products/productsSlice";
 import {basketSlice} from "./basket/basketSlice";
 import {infoSlice} from "./info/infoSlice";
+import {showloaderSlice} from "./showloader/showloaderSlice";
 
 export const store = configureStore({
     reducer: {
         counter: counterSlice.reducer,
         products: productsSlice.reducer,
         basket:basketSlice.reducer,
-        info:infoSlice.reducer
+        info:infoSlice.reducer,
+        showloader:showloaderSlice.reducer
     },
 })
 

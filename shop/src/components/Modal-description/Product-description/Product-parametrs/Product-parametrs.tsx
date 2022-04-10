@@ -1,14 +1,6 @@
 import React from "react";
 import "./Product-parametrs.scss"
 
-interface ProductProps {
-    // [key: string]: {
-        caption: string,
-        measure:string,
-        value:number
-    // }
-}
-
 export function ProductParametrs(props:{params:any}) {
 
     return (
@@ -24,17 +16,6 @@ export function ProductParametrs(props:{params:any}) {
                     </div>
                 )
             })}
-            {/*{ for (var key in props.params){*/}
-            {/*    return (*/}
-            {/*        <div className="parametrs__line">*/}
-            {/*            <span>{param.caption}</span>*/}
-            {/*            <div>*/}
-            {/*                <span className="parametrs__value">{param.value}</span>*/}
-            {/*                <span className="parametrs__measure">{param.measure}</span>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    )*/}
-            {/*}})*/}
         </div>
     )
 }

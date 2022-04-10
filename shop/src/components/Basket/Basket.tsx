@@ -14,7 +14,10 @@ export function Basket() {
         <section className="basket">
             {basketList.map(el => {
                 return(
-                    <BasketItem className="basket__item" product={el} key={el.name} deleteProduct={() => dispatch(deleteFromCart(el))}/>
+                    <BasketItem className="basket__item"
+                                product={el}
+                                key={el.name}
+                                deleteProduct={() => dispatch(deleteFromCart(el))}/>
                 )
             })}
         </section>

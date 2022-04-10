@@ -1,16 +1,12 @@
-import React, {ChangeEvent, SetStateAction, useCallback, useEffect, useMemo, useState} from "react";
+import React, {ChangeEvent, useState} from "react";
 import "./Modal-form.scss"
 import {Button} from "../../ui-kit/Button/Button";
 import {InputBlock} from "../../ui-kit/Input-block/Input-block";
 import {useAppDispatch} from "../../../hooks/hooks";
 import {loadOrder} from "../../../store/basket/async";
+import {Show} from "../../../types/Products";
 
-interface show{
-    setShowParams:(el:boolean) => void
-    setShowResultOrder:(el:boolean) => void
-}
-
-export function ModalForm(props:show) {
+export function ModalForm(props:Show) {
     const [errors, setErrors] = useState<Array<string>>([])
     const [data, setData] = useState({
         name:"",
@@ -46,7 +42,9 @@ export function ModalForm(props:show) {
         return re.test(phone);
     }
 
-    //создание заказа
+    /**
+     * Создание заказа
+     */
     const doOrder = () => {
         props.setShowParams(false);
         props.setShowResultOrder(true)

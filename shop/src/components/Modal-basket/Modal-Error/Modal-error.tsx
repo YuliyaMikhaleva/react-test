@@ -1,11 +1,6 @@
 import React from "react";
 import "./Modal-error.scss"
-
-interface Error{
-    errors:Array<string>,
-    element:string,
-
-}
+import {Error} from "../../../types/Products";
 
 export function ModalError(props:Error) {
     return (

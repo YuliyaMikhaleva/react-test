@@ -2,7 +2,8 @@
 import {RootState} from "../index";
 
 /**
- * Получить описание всех товаров
+ * Все товары
  * @param state
  */
-export const getDescription = (state: RootState) => state.info.description;//Получение описания товаров
+export const getShowloader = (state: RootState) => state.showloader.showloader;
+

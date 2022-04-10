@@ -38,7 +38,7 @@ export function ModalBasket(props:{className:string, close:() => void}) {
 
                                 <Basket/>
                                 {/*Здесь будет корзина с товарами*/}
-                                <ModalForm setShowParams={() => setShowParams} setShowResultOrder={() => setShowResultOrder}/>
+                                <ModalForm setShowParams={(el) => setShowParams(el)} setShowResultOrder={(el) => setShowResultOrder(el)}/>
                             </section>
                         )}
                         <ModalText className="basket__modaltext" title={title} />

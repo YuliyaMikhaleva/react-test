@@ -1,8 +1,9 @@
 // здесь мы создаем обертку для запроса;
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
-//получение товаров
-//Эти функции вызываются в компоненте через useAppDispatch
+/**
+ * Создание заказа внутри корзины
+ */
 export const loadOrder = createAsyncThunk(
     'basket/loadOrder',//название слайса/название экшена
     //вторым параметром функция, в которой делается запрос

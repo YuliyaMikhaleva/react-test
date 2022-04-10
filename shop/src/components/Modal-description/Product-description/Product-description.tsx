@@ -2,52 +2,12 @@ import React, {ChangeEvent, useEffect, useMemo, useState} from "react";
 import "./Product-description.scss"
 import {useAppSelector} from "../../../hooks/hooks";
 import {getDescription} from "../../../store/info/selectors"
-import ReactHtmlParser from 'react-html-parser';
-import { Buffer } from 'buffer';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import {ProductParametrs} from "./Product-parametrs/Product-parametrs";
-import { ProductReviews } from "./Product-reviews/Product-reviews";
 import BasicTabs from "./Tabs/BasicTabs";
-// global.Buffer = Buffer;
+import {Product} from "../../../types/Products";
+import {InterfaceInfo} from "../../../types/Products";
+import {PropsDataForm} from "../../../types/Products";
 
-interface Product{
-    id:number,
-    descr:string,
-    img:string,
-    name:string,
-    parent_id:number,
-    price:number,
-    props: ProductProps,
-    reviews:ProductReviews
-}
-interface ProductProps {
-    [key: string]: {
-        caption: string,
-        measure:string,
-        value:number
-    }
-}
-interface ProductReviews {
-    [key: number]: {
-        author: string,
-        avatar:string,
-        rate:number,
-        text:string
-    }
-}
-interface InterfaceInfo {
-    description: string,
-    parametrs:ProductProps,
-    reviews: ProductReviews,
-    form_review:string
-}
-interface PropsDataForm {
-    mark:number,
-    author:string,
-    text:string,
-    errors:Array<string>
-}
 export function ProductDescription (props:{product:Product}) {
     const description:[]= useAppSelector(getDescription)
     const [info, setInfo] = useState<InterfaceInfo>({
@@ -63,8 +23,6 @@ export function ProductDescription (props:{product:Product}) {
         text:'',
         errors:[],
     })
-
-
 
     let element:(Product|undefined) = useMemo(() => {
         return description.find((el:Product) => el.id === props.product.id)
@@ -85,6 +43,10 @@ export function ProductDescription (props:{product:Product}) {
         setDataForm({...dataForm, mark: newData})
     }
 
+    // const dispatch = useAppDispatch()
+
+    // const addLoader = () => dispatch(turnOnShowloader())
+
     const checkForm = async (e:ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
         setDataForm({...dataForm, errors:[]});
@@ -94,6 +56,7 @@ export function ProductDescription (props:{product:Product}) {
         if (!dataForm.text){
             setDataForm({...dataForm, errors:[...dataForm.errors, 'textError']})
         } else
+        // addLoader()
         setTimeout(() => {
             addNewReview()
         }, 1000)
@@ -115,7 +78,6 @@ export function ProductDescription (props:{product:Product}) {
                 text:'',
                 errors:[],
             })
-            // setInfo({...info, reviews})
         }, 500)
     }
 

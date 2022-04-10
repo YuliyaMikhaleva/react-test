@@ -3,6 +3,9 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 
 //получение товаров
 //Эти функции вызываются в компоненте через useAppDispatch
+/**
+ * Запрос на получение товаров
+ */
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',//название слайса/название экшена
     //вторым параметром функция, в которой делается запрос

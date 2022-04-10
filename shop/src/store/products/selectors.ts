@@ -2,17 +2,21 @@
 import {RootState} from "../index";
 
 /**
- * Все товары
+ * Все товары в каталоге
  * @param state
  */
-export const productsList = (state: RootState) => state.products.productsList;//все товары
+export const productsList = (state: RootState) => state.products.productsList;
 
-//группы товаров, указанные в верхнем/боковом меню
+/**
+ * Группы товаров, указанные в верхнем/боковом меню
+ * @param state
+ * @param id
+ */
 export const getGroups = (state: RootState, id:number) => state.products.productsList.filter((item) => item.parent_id === id).map((el) => el.name);
 
+/**
+ * Группы товаров сфильтрованные по id
+ * @param state
+ * @param id
+ */
 export const getGroupsObjects = (state: RootState, id:number) => state.products.productsList.filter((item) => item.parent_id === id);
-
-export const productsListPending = (state: RootState) => state.products.productsListPending;
-
-
-export const basket = (state: RootState) => state.basket.basket;//все товары в корзине

@@ -5,8 +5,9 @@ import "./Header-menu.scss"
 
 
 export function HeaderMenu() {
-    //кнопки меню хедера
-
+    /**
+     * Кнопки хедера по id
+     */
     let headerButtonns = useButtonsObj(-1)
 
     return (

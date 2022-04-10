@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useCallback, useEffect, useRef, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import {InputBlock} from "../../../ui-kit/Input-block/Input-block";
 import {ModalError} from "../../../Modal-basket/Modal-Error/Modal-error";
 import {Button} from "../../../ui-kit/Button/Button";
@@ -31,16 +31,11 @@ export default function FormReview(props: PropsFormReview & JSX.IntrinsicAttribu
         props.changeText(data.review)
     }, [data.review])
 
-
-
     const submitFunc =  (e:ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
          props.checkForm(e);
          setData({name:"", review: ""})
     }
-
-
-
 
     const classes = ['form-review__textArea', {'form-review__error' : props.errors.indexOf('nameError')}]
 

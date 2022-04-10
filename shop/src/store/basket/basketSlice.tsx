@@ -2,7 +2,6 @@ import {createSlice} from "@reduxjs/toolkit";
 import {initialState} from "./state";
 import {BasketInitialState} from "./types";
 import {loadOrder} from "./async";
-import {useDispatch} from "react-redux";
 
 
 //тут то, что было в редюссере

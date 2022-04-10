@@ -1,5 +1,8 @@
 .modal{
   background: white;
+  left: auto;
+  width: auto;
+  height: auto;
   &__dialog{
     display: flex;
     justify-content: flex-end;

@@ -1,31 +1,7 @@
 import React  from "react";
 import "./BasketItem.scss"
 import classNames from "classnames";
-
-interface Product{
-    id:number,
-    img:string,
-    name:string,
-    parent_id:number,
-    price:number,
-    props: ProductProps,
-    reviews:ProductReviews
-}
-interface ProductProps {
-    [key: string]: {
-        caption: string,
-        measure:string,
-        value:number
-    }
-}
-interface ProductReviews {
-    [key: number]: {
-        author: string,
-        avatar:string,
-        rate:number,
-        text:string
-    }
-}
+import {Product} from "../../../types/Products"
 
 export function BasketItem(props:{product:Product, className:string, deleteProduct:()=> void}) {
 

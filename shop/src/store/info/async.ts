@@ -27,6 +27,9 @@ interface ProductReviews {
     }
 }
 
+/**
+ * Запрос на получение описания
+ */
 //Эти функции вызываются в компоненте через useAppDispatch
 export const loadDescription = createAsyncThunk(
     'info/loadDescription',//название слайса/название экшена
@@ -49,7 +52,6 @@ export const loadDescription = createAsyncThunk(
                 return newArray
             })
             .then(function(newArray) {
-                // let arrayDescription:any = [];
                 let newArray2 = newArray.map((element:Product) => {
                     return  fetch(`http://test1.web-gu.ru/?action=show_product&id=${element.id}`)
                         .then(response => response.json()
