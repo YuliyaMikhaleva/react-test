@@ -1,7 +1,8 @@
 //Здесь указываются типы каждого свойства изначального стейта этого модуля
 export interface BasketInitialState {
     basket: Product[],
-    pending: null | boolean | number,
+    basketPending: null | boolean | number,
+    basketErrors:null | boolean,
     itemsIds:Array<number>
 }
 

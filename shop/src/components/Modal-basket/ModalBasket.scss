@@ -3,6 +3,8 @@
   left: auto;
   width: auto;
   height: auto;
+  overflow: auto;
+  height: 100vh;
   &__dialog{
     display: flex;
     justify-content: flex-end;

@@ -18,8 +18,16 @@ export const infoSlice = createSlice({
     // fullfilled, pending, rejected и тд. Соотвественно удобно обрабатывать ошибки и загрузки, уже не говоря о том, что можно сделать
     // полностью автоматизированную генерацию всех этих редьюсеров и статусов ошибок, загрузок
     extraReducers: (builder) => {
+        builder.addCase(loadDescription.pending, (state: InfoInitialState) => {
+            state.infoPending = true;
+        });
         builder.addCase(loadDescription.fulfilled, (state: InfoInitialState, action: PayloadAction<any>) => {
             state.description = action.payload;
+            state.infoPending = false
+        });
+        builder.addCase(loadDescription.rejected, (state: InfoInitialState) => {
+            state.infoErrors = true;
+            state.infoPending = false
         });
     }
 

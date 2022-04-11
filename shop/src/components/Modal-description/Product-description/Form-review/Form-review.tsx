@@ -53,7 +53,7 @@ export default function FormReview(props: PropsFormReview & JSX.IntrinsicAttribu
                 }
             />
             <label className="form-review__label">Отзыв</label>
-            <textarea className={classNames(classes)} name="review" id="review" onChange={(event:ChangeEvent<HTMLTextAreaElement>):void => setData({...data, review: event.target.value})}></textarea>
+            <textarea value={data.review} className={classNames(classes)} name="review" id="review" onChange={(event:ChangeEvent<HTMLTextAreaElement>):void => setData({...data, review: event.target.value})}></textarea>
             {props.text === "" && (
                 <ModalError errors={props.errors} element={data.review}/>
 

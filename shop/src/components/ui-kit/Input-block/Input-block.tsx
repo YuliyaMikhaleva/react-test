@@ -12,14 +12,13 @@ interface inputType{
     changeData:(value:string)=>void
 }
 
-
 export function InputBlock(props:inputType) {
     const classes = ['input-block', props.className]
 
     return (
         <div className={classNames(classes)}>
             <label htmlFor={props.value} className="input-block__label">{props.label}</label>
-            <input id={props.value} className="input-block__input" type="text" onInput={(e:ChangeEvent<HTMLInputElement>) => props.changeData(e.target.value)}/>
+            <input value={props.value} id={props.value} className="input-block__input" type="text" onInput={(e:ChangeEvent<HTMLInputElement>) => props.changeData(e.target.value)}/>
             <ModalError errors={props.errors} element={props.value}/>
             {(props.errors.length && props.label==="Телефон") ? (
                 <div>
@@ -38,6 +37,5 @@ export function InputBlock(props:inputType) {
             ) : <></>
             }
         </div>
-
     )
 }

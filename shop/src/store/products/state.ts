@@ -5,4 +5,5 @@ import {ProductsInitialState} from "./types"
 export const initialState: ProductsInitialState = {
     productsList:[],
     productsListPending: null,
+    productsListErrors:null
 }

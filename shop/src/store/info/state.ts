@@ -4,4 +4,6 @@ import {InfoInitialState} from "./types"
 
 export const initialState: InfoInitialState = {
     description:[],
+    infoPending: null,
+    infoErrors:null
 }

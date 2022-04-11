@@ -2,6 +2,7 @@
 export interface ProductsInitialState {
     productsList: Product[],
     productsListPending: null | boolean,
+    productsListErrors:null | boolean,
 }
 
 export interface Product{

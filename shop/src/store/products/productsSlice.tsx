@@ -18,8 +18,16 @@ export const productsSlice = createSlice({
     // fullfilled, pending, rejected и тд. Соотвественно удобно обрабатывать ошибки и загрузки, уже не говоря о том, что можно сделать
     // полностью автоматизированную генерацию всех этих редьюсеров и статусов ошибок, загрузок
     extraReducers: (builder) => {
+        builder.addCase(fetchProducts.pending, (state: ProductsInitialState) => {
+            state.productsListPending = true;
+        });
         builder.addCase(fetchProducts.fulfilled, (state: ProductsInitialState, action: PayloadAction<[]>) => {
             state.productsList = action.payload;
+            state.productsListPending = false;
+        });
+        builder.addCase(fetchProducts.rejected, (state: ProductsInitialState) => {
+            state.productsListErrors = true;
+            state.productsListPending = false
         });
     }
 

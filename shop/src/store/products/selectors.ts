@@ -20,3 +20,16 @@ export const getGroups = (state: RootState, id:number) => state.products.product
  * @param id
  */
 export const getGroupsObjects = (state: RootState, id:number) => state.products.productsList.filter((item) => item.parent_id === id);
+
+
+/**
+ * Вывод статуса загразуки товаров
+ * @param state
+ */
+export const productsPending = (state: RootState) => state.products.productsListPending
+
+/**
+ * Вывод ошибки запроса на загрузку товаров
+ * @param state
+ */
+export const productsError= (state: RootState) => state.products.productsListErrors
